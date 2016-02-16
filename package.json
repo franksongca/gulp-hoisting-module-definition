@@ -1,10 +1,11 @@
 {
   "name": "gulp-hoisting-module-definition",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "move the module definition to the top of all the modules depends on it.",
   "main": "index.js",
-  "repository" : { "type" : "git",
-    "url" : "https://github.com/franksongca/gulp-hoisting-module-definition.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/franksongca/gulp-hoisting-module-definition.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
