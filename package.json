@@ -1,0 +1,14 @@
+{
+  "name": "gulp-hoisting-module-definition",
+  "version": "1.0.0",
+  "description": "move the module definition to the top of all the modules depends on it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "email": "songfrank@hotmail.com",
+    "name": "Frank Song"
+  },
+  "license": "ISC"
+}
