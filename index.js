@@ -26,7 +26,7 @@ function hoist(input) {
 
   res = pieces.join('(function () {');
 
-  buffer = new Buffer(res.length);
+  buffer = new Buffer(res.length + 3);
 
   buffer.write(res, "utf-8");
 
