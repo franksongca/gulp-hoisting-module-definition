@@ -3,15 +3,17 @@
 var through = require('through2'),
   _ = require('underscore-node');
 
-function hoist(input) {
+function hoist(input, moduleName) {
   var res = input,
     pieces = res.split('(function () {'),
     defPiece,
     defIndex,
     buffer;
 
+  moduleName = moduleName || 'ute-ui';
+
   defPiece =_.find(pieces, function (piece, index) {
-    if (piece.indexOf('angular.module(\'ute.ui\', [') >= 0) {
+    if (piece.indexOf('angular.module(\'' + moduleName + '\', [') >= 0) {
       defIndex = index;
       return true;
     };
@@ -26,15 +28,15 @@ function hoist(input) {
 
   res = pieces.join('(function () {');
 
-  buffer = new Buffer(res.length);
+  buffer = new Buffer(res.length + 3);
 
   buffer.write(res, "utf-8");
 
   return buffer;
 }
 
-module.exports = function() {
-  console.error('hoisting module definition...');
+module.exports = function(moduleName) {
+  console.error('hoisting module definition... ' + moduleName);
 
   /**
    * buffer each content
@@ -46,7 +48,7 @@ module.exports = function() {
 
     if (stream.isBuffer()) {
       //console.log(file.contents.toString());
-      stream.contents = hoist(stream.contents.toString());
+      stream.contents = hoist(stream.contents.toString(), moduleName);
     }
     callback(null, stream);
   };
