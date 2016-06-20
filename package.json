@@ -1,6 +1,6 @@
 {
   "name": "gulp-hoisting-module-definition",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "move the module definition to the top of all the modules depends on it.",
   "main": "index.js",
   "repository": {
